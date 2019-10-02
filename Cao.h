@@ -10,7 +10,9 @@
 using namespace std;
 
 class Cao {
+
 public:
+
     Cao();
 
     Cao(string nome, string raca, int idade, char sexo);
@@ -37,12 +39,18 @@ public:
 
     void copiar(Cao c);
 
+    int getCod() const;
+
+    void setCod(int cod);
+
 private:
+
+    int cod;
     int idade;
     char sexo;
     string nome;
     string raca;
+    static int id_counter;
 };
-
 
 #endif //CANIL_CAO_H

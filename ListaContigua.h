@@ -37,6 +37,12 @@ public:
 
     void print();
 
+    int buscaBinaria(Cao c);
+
+    void bolha(Cao c);
+
+    void troca(Cao atual, Cao prox, int i);
+
 private:
     int tam;
     int quant;

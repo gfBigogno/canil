@@ -5,7 +5,11 @@
 #include <iostream>
 #include "Cao.h"
 
+int Cao::id_counter = -10;
+
 Cao::Cao() {
+    this->cod = this->id_counter;
+    this->id_counter++;
     this->nome = "";
     this->raca = "vira-lata";
     this->idade = 0;
@@ -13,6 +17,8 @@ Cao::Cao() {
 }
 
 Cao::Cao(string nome, string raca, int idade, char sexo) {
+    this->cod = this->id_counter;
+    this->id_counter++;
     this->nome = nome;
     this->raca = raca;
     this->idade = idade;
@@ -20,6 +26,7 @@ Cao::Cao(string nome, string raca, int idade, char sexo) {
 }
 
 Cao::Cao(const Cao &outro) {
+    this->cod = outro.getCod();
     this->sexo = outro.getSexo();
     this->idade = outro.getIdade();
     this->raca = outro.getRaca();
@@ -27,6 +34,7 @@ Cao::Cao(const Cao &outro) {
 }
 
 void Cao::copiar(Cao c) {
+    this->cod = c.getCod();
     this->sexo = c.getSexo();
     this->idade = c.getIdade();
     this->raca = c.getRaca();
@@ -35,6 +43,7 @@ void Cao::copiar(Cao c) {
 
 void Cao::imprime() {
     cout << "******************************" << endl;
+    cout << "Cod: " << cod << endl;
     cout << "Nome: " << nome << endl;
     cout << "Raca: " << raca << endl;
     cout << "Idade: " << idade << endl;
@@ -72,4 +81,12 @@ const string &Cao::getRaca() const {
 
 void Cao::setRaca(const string &raca) {
     Cao::raca = raca;
+}
+
+int Cao::getCod() const {
+    return cod;
+}
+
+void Cao::setCod(int cod) {
+    Cao::cod = cod;
 }
